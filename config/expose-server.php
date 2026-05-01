@@ -20,11 +20,7 @@ return [
     | if you enable authentication token validation.
     |
     */
-    'database' => implode(DIRECTORY_SEPARATOR, [
-        $_SERVER['HOME'] ?? __DIR__,
-        '.expose',
-        'expose.db',
-    ]),
+    'database' => env('DATABASE_PATH', '/home/expose-server/.expose/expose.db'),
 
     /*
     |--------------------------------------------------------------------------
@@ -145,7 +141,7 @@ return [
     |
     */
     'users' => [
-        env('username', 'username') => env('secret', 'secret'),
+        env('USERNAME', 'username') => env('PASSWORD', 'secret'),
     ],
 
     /*
